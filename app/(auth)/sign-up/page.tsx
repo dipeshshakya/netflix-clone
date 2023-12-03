@@ -3,8 +3,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { GithubIcon } from "lucide-react";
-import GoogleIcon from "../../../public/google.svg"
+import GoogleIcon from "../../../public/google.svg";
 import Image from "next/image";
+import GithubSignInButton from "@/app/components/GithubSignInBtn";
+import GoogleSignInButton from "@/app/components/GoogleSignInBtn";
 export default function Signup() {
   return (
     <div className="mt-24 rounded bg-black/80 py-10 px-6 md:mt-0 md:max-w-sm md:px-14">
@@ -29,17 +31,13 @@ export default function Signup() {
       </form>
       <div className="text-sm text-gray-500 mt-2">
         Already have a Account?
-        <Link className="text-white hover:underline" href="/login">
-          Login
+        <Link className="text-white hover:underline mx-1" href="/login">
+          Login in now
         </Link>
       </div>
-      <div className="flex w-full justify-center items-centergap-x-3 mt-6">
-        <Button variant="outline" size="icon">
-            <GithubIcon className="w-4 h-4"/>
-        </Button>
-        <Button variant="outline" size="icon">
-            <Image src={GoogleIcon} alt="google icon" className="w-6 h-6"/>
-        </Button>
+      <div className="flex w-full justify-center items-center gap-x-3 mt-6">
+        <GithubSignInButton />
+        <GoogleSignInButton />
       </div>
     </div>
   );
