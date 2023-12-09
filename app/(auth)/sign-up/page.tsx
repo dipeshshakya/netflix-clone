@@ -7,7 +7,16 @@ import GoogleIcon from "../../../public/google.svg";
 import Image from "next/image";
 import GithubSignInButton from "@/app/components/GithubSignInBtn";
 import GoogleSignInButton from "@/app/components/GoogleSignInBtn";
-export default function Signup() {
+import { redirect } from "next/navigation";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
+export default async function Signup() {
+
+  const session = await getServerSession(authOptions);
+
+  if (session) {
+    return redirect("/home");
+  }
   return (
     <div className="mt-24 rounded bg-black/80 py-10 px-6 md:mt-0 md:max-w-sm md:px-14">
       <h1 className="font-3xl font-semibold">Sign Up</h1>
